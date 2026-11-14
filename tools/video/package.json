@@ -1,0 +1,9 @@
+{
+  "name": "choir-video",
+  "private": true,
+  "type": "module",
+  "description": "Films the real app and cuts the demo video. Kept apart so the product's install stays small.",
+  "dependencies": {
+    "playwright-core": "^1.56.0"
+  }
+}

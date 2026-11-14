@@ -1,0 +1,111 @@
+{
+  "cast": {
+    "asha": "tara",
+    "maya": "leah",
+    "narrator": "dan",
+    "sam": "leo"
+  },
+  "lines": [
+    {
+      "id": "a1",
+      "voice": "asha",
+      "takes": 3,
+      "text": "For two years, I ran our community's account. One login. Mine."
+    },
+    {
+      "id": "a2",
+      "voice": "asha",
+      "takes": 3,
+      "text": "I could post anything, in everyone's name. And if I left, the account left with me.",
+      "human": "I could post anything, in everyone's name. <sigh> And if I left, the account left with me."
+    },
+    {
+      "id": "m1",
+      "voice": "maya",
+      "takes": 3,
+      "text": "And those of us who wrote the posts? We never saw a cent."
+    },
+    {
+      "id": "n1",
+      "voice": "narrator",
+      "takes": 3,
+      "text": "Choir is a community account that nobody can log in to."
+    },
+    {
+      "id": "n2",
+      "voice": "narrator",
+      "takes": 3,
+      "text": "It's a real NEAR account with no keys. Nobody can make it say anything. It only repeats what its members post. And it pays them.",
+      "human": "It's a real near account with no keys. Nobody can make it say anything. It only repeats what its members post. And it pays them."
+    },
+    {
+      "id": "m2",
+      "voice": "maya",
+      "takes": 3,
+      "text": "So I post from my own account, like always. Then I ask the Choir to repeat it."
+    },
+    {
+      "id": "n3",
+      "voice": "narrator",
+      "takes": 3,
+      "text": "The account reposts her. Her words, under her name."
+    },
+    {
+      "id": "n4",
+      "voice": "narrator",
+      "takes": 3,
+      "text": "A reader sends a tip. It's split the moment it lands: most of it goes to the members who were repeated, and a small, capped cut to the seat."
+    },
+    {
+      "id": "n5",
+      "voice": "narrator",
+      "takes": 3,
+      "text": "When the round ends, the account posts its own receipt. Nobody typed that."
+    },
+    {
+      "id": "m3",
+      "voice": "maya",
+      "takes": 3,
+      "text": "And I got paid. For a post!",
+      "human": "And I got paid. <laugh> For a post!"
+    },
+    {
+      "id": "a3",
+      "voice": "asha",
+      "takes": 3,
+      "text": "Then it was time for me to step down. There was no password to hand over. Just the seat."
+    },
+    {
+      "id": "n6",
+      "voice": "narrator",
+      "takes": 3,
+      "text": "The seat is an NFT. One transaction, and Sam is the conductor. The account announces it, by itself.",
+      "human": "The seat is an N F T. One transaction, and Sam is the conductor. The account announces it, by itself."
+    },
+    {
+      "id": "a4",
+      "voice": "asha",
+      "takes": 3,
+      "text": "I tried my old desk. It's closed.",
+      "human": "<chuckle> I tried my old desk. It's closed."
+    },
+    {
+      "id": "n7",
+      "voice": "narrator",
+      "takes": 3,
+      "text": "Because this account has no keys at all. And anyone can check."
+    },
+    {
+      "id": "s1",
+      "voice": "sam",
+      "takes": 3,
+      "text": "The members keep everything they earned."
+    },
+    {
+      "id": "a5",
+      "voice": "asha",
+      "takes": 3,
+      "text": "And the community keeps its account."
+    }
+  ]
+}

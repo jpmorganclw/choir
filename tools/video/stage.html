@@ -1,0 +1,164 @@
+<!doctype html>
+<meta charset="utf-8" />
+<style>
+  @font-face { font-family: 'Fraunces'; font-weight: 300 800; font-style: normal; src: url('../../node_modules/@fontsource-variable/fraunces/files/fraunces-latin-wght-normal.woff2') format('woff2-variations'); }
+  @font-face { font-family: 'Fraunces'; font-weight: 300 800; font-style: italic; src: url('../../node_modules/@fontsource-variable/fraunces/files/fraunces-latin-wght-italic.woff2') format('woff2-variations'); }
+  @font-face { font-family: 'DM Sans'; font-weight: 300 800; font-style: normal; src: url('../../node_modules/@fontsource-variable/dm-sans/files/dm-sans-latin-wght-normal.woff2') format('woff2-variations'); }
+  @font-face { font-family: 'Plex Mono'; font-weight: 400; src: url('../../node_modules/@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-400-normal.woff2') format('woff2'); }
+
+  :root { --ink: #14213d; --paper: #fff8e7; --amber: #f2c14e; --sky: #9fb0d0; --card: #fffdf6; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: var(--ink); font-family: 'DM Sans', sans-serif; color: var(--ink); }
+  #cam { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; transform-origin: 0 0; }
+  #shot { display: block; width: 1920px; height: 1080px; }
+  #fade { position: absolute; inset: 0; background: var(--ink); opacity: 0; }
+
+  #badge {
+    position: absolute; left: 44px; bottom: 14px; display: flex; align-items: center; gap: 10px;
+    padding: 8px 16px; border-radius: 999px; background: rgba(20, 33, 61, 0.9); border: 1px solid rgba(255, 248, 231, 0.25);
+    font: 600 17px/1 'DM Sans', sans-serif; letter-spacing: 0.09em; color: var(--paper);
+  }
+  #badge i { width: 11px; height: 11px; border-radius: 50%; background: #7fd59d; display: block; }
+  #chapter {
+    position: absolute; left: 44px; top: 30px; padding: 12px 24px 13px; border-radius: 999px; background: var(--amber); color: var(--ink);
+    font: 600 29px/1 'Fraunces', serif; letter-spacing: -0.01em; opacity: 0;
+  }
+
+  #caption { position: absolute; left: 0; right: 0; bottom: 58px; display: flex; justify-content: center; opacity: 0; }
+  #caption div { max-width: 1560px; padding: 20px 44px 24px; border-radius: 18px; background: rgba(13, 22, 43, 0.93); text-align: center; box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35); }
+  #who { display: block; font: 700 22px/1 'DM Sans', sans-serif; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 11px; }
+  #who:empty { display: none; }
+  #text { display: block; font: 500 45px/1.25 'DM Sans', sans-serif; color: var(--paper); }
+
+  /* ---- the opening: three drawn scenes, before the app appears ---- */
+  .scene { position: absolute; inset: 0; background: var(--ink); opacity: 0; display: flex; align-items: center; justify-content: center; gap: 110px; padding-bottom: 170px; }
+  .login { width: 700px; background: var(--card); border-radius: 28px; padding: 44px 46px 46px; box-shadow: 0 40px 90px rgba(0, 0, 0, 0.45); }
+  .login .head { display: flex; align-items: center; gap: 20px; margin-bottom: 34px; }
+  .login .logo { width: 84px; height: 84px; border-radius: 50%; background: var(--ink); display: grid; place-items: center; }
+  .login b { font: 600 44px/1.05 'Fraunces', serif; letter-spacing: -0.02em; display: block; }
+  .login .handle { font: 400 24px/1 'Plex Mono', monospace; color: #6b7a99; margin-top: 8px; display: block; }
+  .login label { font: 600 22px/1 'DM Sans', sans-serif; color: #33415f; display: block; margin-bottom: 12px; }
+  .login .field { height: 76px; border-radius: 16px; border: 2px solid var(--ink); display: flex; align-items: center; padding: 0 24px; gap: 13px; background: #fff; }
+  .login .field i { width: 17px; height: 17px; border-radius: 50%; background: var(--ink); display: block; }
+  .login .go { margin-top: 24px; height: 72px; border-radius: 999px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font: 600 28px/1 'DM Sans', sans-serif; }
+  .tag { display: inline-flex; align-items: center; gap: 14px; padding: 20px 34px; border-radius: 999px; background: var(--amber); color: var(--ink); font: 600 42px/1 'Fraunces', serif; }
+  .side { display: flex; flex-direction: column; gap: 34px; align-items: flex-start; }
+  .big { font: 500 96px/1.04 'Fraunces', serif; letter-spacing: -0.025em; color: var(--paper); }
+  .big em { font-style: italic; color: var(--amber); }
+  .bubble { width: 780px; background: var(--card); border-radius: 24px; padding: 28px 30px; box-shadow: 0 30px 70px rgba(0, 0, 0, 0.4); }
+  .bubble .row { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
+  .bubble .av { width: 58px; height: 58px; border-radius: 50%; display: grid; place-items: center; font: 600 26px/1 'Fraunces', serif; flex: none; }
+  .bubble .name { font: 700 28px/1.1 'DM Sans', sans-serif; }
+  .bubble .name small { display: block; font: 400 20px/1 'Plex Mono', monospace; color: #6b7a99; margin-top: 6px; }
+  .bubble p { margin: 0; font: 400 36px/1.3 'DM Sans', sans-serif; }
+  .bubble .earned { margin-left: auto; padding: 10px 18px; border-radius: 999px; background: #f8e2df; color: #b3413f; font: 700 24px/1 'DM Sans', sans-serif; white-space: nowrap; }
+  .gone { transition: none; }
+  .posts { display: flex; flex-direction: column; gap: 26px; }
+
+  #card { position: absolute; inset: 0; background: var(--ink); opacity: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: var(--paper); }
+  #card svg.mark { width: 150px; height: 150px; margin-bottom: 26px; }
+  #card h1 { margin: 0; font: 560 150px/1 'Fraunces', serif; letter-spacing: -0.035em; }
+  #card h2 { margin: 26px 0 44px; font: 500 62px/1.12 'Fraunces', serif; letter-spacing: -0.02em; max-width: 1500px; }
+  #card h2 em { font-style: italic; color: var(--amber); }
+  #card p { margin: 0; font: 500 38px/1.35 'DM Sans', sans-serif; color: var(--sky); }
+  #card small { position: absolute; left: 0; right: 0; bottom: 52px; font: 400 25px/1.4 'DM Sans', sans-serif; color: #7f8fb0; }
+</style>
+
+<div id="cam"><img id="shot" alt="" /></div>
+
+<div class="scene" id="p1">
+  <div class="login">
+    <div class="head">
+      <div class="logo"><svg viewBox="20 18 56 42" width="48" height="48"><g fill="#F2C14E"><rect x="20" y="45" width="8" height="12" rx="4" /><rect x="32" y="33" width="8" height="24" rx="4" /><rect x="44" y="21" width="8" height="36" rx="4" /><rect x="56" y="37" width="8" height="20" rx="4" /><rect x="68" y="29" width="8" height="28" rx="4" /></g></svg></div>
+      <div><b>NEAR Builders</b><span class="handle">the community's account</span></div>
+    </div>
+    <label>Password</label>
+    <div class="field"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="go">Sign in</div>
+  </div>
+  <div class="side">
+    <div class="big" id="p1-a">One account.<br />One login.</div>
+    <div class="tag" id="p1-b">Only Asha has it</div>
+  </div>
+</div>
+
+<div class="scene" id="p2">
+  <div class="side">
+    <div class="bubble" id="p2-a">
+      <div class="row">
+        <div class="av" style="background: var(--ink)"><svg viewBox="20 18 56 42" width="32" height="32"><g fill="#F2C14E"><rect x="20" y="45" width="8" height="12" rx="4" /><rect x="32" y="33" width="8" height="24" rx="4" /><rect x="44" y="21" width="8" height="36" rx="4" /><rect x="56" y="37" width="8" height="20" rx="4" /><rect x="68" y="29" width="8" height="28" rx="4" /></g></svg></div>
+        <div class="name">NEAR Builders<small>posted by whoever is logged in</small></div>
+      </div>
+      <p>Anything she types goes out in everyone's name.</p>
+    </div>
+  </div>
+  <div class="side">
+    <div class="big" id="p2-b">If she leaves,<br />the account<br /><em>leaves with her.</em></div>
+  </div>
+</div>
+
+<div class="scene" id="p3">
+  <div class="posts">
+    <div class="bubble" id="p3-a"><div class="row" style="margin: 0"><div class="av" style="background: #9fb0d0">M</div><div class="name">Maya<small>wrote the guide everyone shared</small></div><div class="earned">earned 0</div></div></div>
+    <div class="bubble" id="p3-b"><div class="row" style="margin: 0"><div class="av" style="background: #e8a598">L</div><div class="name">Leo<small>wrote the docs</small></div><div class="earned">earned 0</div></div></div>
+    <div class="bubble" id="p3-c"><div class="row" style="margin: 0"><div class="av" style="background: #a8d5ba">N</div><div class="name">Noor<small>answered every question</small></div><div class="earned">earned 0</div></div></div>
+  </div>
+  <div class="side">
+    <div class="big">The people who post<br /><em>get nothing.</em></div>
+  </div>
+</div>
+
+<div id="chapter"></div>
+<div id="badge"><i></i><span id="badge-text">LIVE ON NEAR TESTNET</span></div>
+<div id="caption"><div><span id="who"></span><span id="text"></span></div></div>
+
+<div id="card">
+  <svg class="mark" viewBox="0 0 96 96" aria-hidden="true"><rect width="96" height="96" rx="20" fill="#FFF8E7" /><g fill="#F2C14E"><rect x="20" y="45" width="8" height="12" rx="4" /><rect x="32" y="33" width="8" height="24" rx="4" /><rect x="44" y="21" width="8" height="36" rx="4" /><rect x="56" y="37" width="8" height="20" rx="4" /><rect x="68" y="29" width="8" height="28" rx="4" /></g><rect x="20" y="65" width="56" height="4" rx="2" fill="#14213D" opacity=".55" /></svg>
+  <h1>Choir</h1>
+  <h2>The community account <em>nobody</em> can speak through.</h2>
+  <p>A NEAR account with no keys. It repeats its members, and pays them.</p>
+  <small id="small"></small>
+</div>
+<div id="fade"></div>
+
+<script>
+  const $ = (id) => document.getElementById(id);
+  const colours = { Asha: '#f2c14e', Maya: '#ffb3a6', Sam: '#9fd0ff' };
+  const ease = (p) => { const c = Math.min(1, Math.max(0, p)); return c * c * (3 - 2 * c); };
+  let current = '';
+  /** Fades and lifts one piece of a drawn scene in, starting at `from` (0..1 of the scene). */
+  const rise = (id, p, from, span = 0.16) => {
+    const q = ease((p - from) / span);
+    $(id).style.opacity = q;
+    $(id).style.transform = `translateY(${(1 - q) * 26}px)`;
+  };
+  window.draw = async (s) => {
+    if (s.src && s.src !== current) {
+      const img = $('shot');
+      img.src = s.src;
+      // A frame that cannot be decoded has to stop the render, not leave the last picture up.
+      await img.decode();
+      current = s.src;
+    }
+    $('cam').style.transform = `translate(${s.tx}px,${s.ty}px) scale(${s.zoom})`;
+    $('cam').style.opacity = s.scene ? 0 : 1;
+    for (const name of ['p1', 'p2', 'p3']) $(name).style.opacity = s.scene === name ? s.sceneShown : 0;
+    if (s.scene === 'p1') { rise('p1-a', s.sceneT, 0.34); rise('p1-b', s.sceneT, 0.62); }
+    if (s.scene === 'p2') { rise('p2-a', s.sceneT, 0.02); rise('p2-b', s.sceneT, 0.5); }
+    if (s.scene === 'p3') { rise('p3-a', s.sceneT, 0.02); rise('p3-b', s.sceneT, 0.14); rise('p3-c', s.sceneT, 0.26); }
+    $('badge').style.opacity = s.badge;
+    $('badge-text').textContent = s.badgeText;
+    $('fade').style.opacity = s.fade;
+    $('chapter').style.opacity = s.chapter ? 1 : 0;
+    if (s.chapter) $('chapter').textContent = s.chapter;
+    $('card').style.opacity = s.card;
+    $('small').textContent = s.small ?? '';
+    $('caption').style.opacity = s.captionOpacity;
+    if (s.text !== undefined) {
+      $('text').textContent = s.text;
+      $('who').textContent = s.who;
+      $('who').style.color = colours[s.who] ?? '#fff';
+    }
+  };
+  window.ready = async () => { await document.fonts.ready; };
+</script>

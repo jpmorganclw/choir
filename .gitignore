@@ -1,0 +1,15 @@
+target/
+node_modules/
+app/dist/
+.env
+.env.*
+*.log
+.DS_Store
+.local/
+.claude/
+# Paths to tools on the machine this was built on.
+scripts/env.sh
+# Only the finished demo video is kept.
+video/*
+!video/choir-demo.mp4
+deployments/*.secret.json

@@ -1,0 +1,12 @@
+[package]
+name = "choir-registry"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "The Choir collection: NEP-171 index, mint and market for Choirs, each of which is its own account."
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+near-sdk = { workspace = true }

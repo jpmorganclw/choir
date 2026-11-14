@@ -1,0 +1,161 @@
+{
+ "duration": 88.25000000000001,
+ "take": "local1",
+ "mode": "local",
+ "voices": "voices-kokoro",
+ "lines": [
+  {
+   "id": "a1",
+   "take": 0,
+   "at": 0.5,
+   "seconds": 4.17,
+   "shot": "p1",
+   "voice": "asha",
+   "text": "For two years, I ran our community's account. One login. Mine."
+  },
+  {
+   "id": "a2",
+   "take": 0,
+   "at": 5.22,
+   "seconds": 4.84,
+   "shot": "p2",
+   "voice": "asha",
+   "text": "I could post anything, in everyone's name. And if I left, the account left with me."
+  },
+  {
+   "id": "m1",
+   "take": 0,
+   "at": 10.56,
+   "seconds": 3.09,
+   "shot": "p3",
+   "voice": "maya",
+   "text": "And those of us who wrote the posts? We never saw a cent."
+  },
+  {
+   "id": "n1",
+   "take": 0,
+   "at": 14.4,
+   "seconds": 3.73,
+   "shot": "idea",
+   "voice": "narrator",
+   "text": "Choir is a community account that nobody can log in to."
+  },
+  {
+   "id": "n2",
+   "take": 0,
+   "at": 18.63,
+   "seconds": 8.66,
+   "shot": "account",
+   "voice": "narrator",
+   "text": "It's a real NEAR account with no keys. Nobody can make it say anything. It only repeats what its members post. And it pays them."
+  },
+  {
+   "id": "m2",
+   "take": 0,
+   "at": 27.84,
+   "seconds": 4.86,
+   "shot": "post",
+   "voice": "maya",
+   "text": "So I post from my own account, like always. Then I ask the Choir to repeat it."
+  },
+  {
+   "id": "n3",
+   "take": 0,
+   "at": 35.05,
+   "seconds": 3.33,
+   "shot": "repost",
+   "voice": "narrator",
+   "text": "The account reposts her. Her words, under her name."
+  },
+  {
+   "id": "n4",
+   "take": 0,
+   "at": 38.98,
+   "seconds": 8.7,
+   "shot": "tip",
+   "voice": "narrator",
+   "text": "A reader sends a tip. It's split the moment it lands: most of it goes to the members who were repeated, and a small, capped cut to the seat."
+  },
+  {
+   "id": "n5",
+   "take": 0,
+   "at": 48.38,
+   "seconds": 4.81,
+   "shot": "round",
+   "voice": "narrator",
+   "text": "When the round ends, the account posts its own receipt. Nobody typed that."
+  },
+  {
+   "id": "m3",
+   "take": 0,
+   "at": 53.89,
+   "seconds": 1.83,
+   "shot": "paid",
+   "voice": "maya",
+   "text": "And I got paid. For a post!"
+  },
+  {
+   "id": "a3",
+   "take": 0,
+   "at": 56.72,
+   "seconds": 5.1,
+   "shot": "stepdown",
+   "voice": "asha",
+   "text": "Then it was time for me to step down. There was no password to hand over. Just the seat."
+  },
+  {
+   "id": "n6",
+   "take": 0,
+   "at": 62.32,
+   "seconds": 7.11,
+   "shot": "handover",
+   "voice": "narrator",
+   "text": "The seat is an NFT. One transaction, and Sam is the conductor. The account announces it, by itself."
+  },
+  {
+   "id": "a4",
+   "take": 0,
+   "at": 70.18,
+   "seconds": 2.24,
+   "shot": "closed",
+   "voice": "asha",
+   "text": "I tried my old desk. It's closed."
+  },
+  {
+   "id": "n7",
+   "take": 0,
+   "at": 73.07,
+   "seconds": 3.99,
+   "shot": "proof",
+   "voice": "narrator",
+   "text": "Because this account has no keys at all. And anyone can check."
+  },
+  {
+   "id": "s1",
+   "take": 0,
+   "at": 77.86,
+   "seconds": 2.17,
+   "shot": "keep",
+   "voice": "sam",
+   "text": "The members keep everything they earned."
+  },
+  {
+   "id": "a5",
+   "take": 0,
+   "at": 80.53,
+   "seconds": 1.82,
+   "shot": "theirs",
+   "voice": "asha",
+   "text": "And the community keeps its account."
+  }
+ ],
+ "cues": {
+  "idea": 14.099999999999998,
+  "work": 27.64,
+  "paid": 53.69000000000001,
+  "handover": 56.420000000000016,
+  "matters": 77.61000000000001,
+  "end": 83.25000000000001
+ },
+ "missing": []
+}

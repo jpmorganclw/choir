@@ -1,0 +1,12 @@
+[package]
+name = "choir-item"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "One Choir: a keyless community account that posts to near.social, splits tips and obeys its conductor."
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+near-sdk = { workspace = true }
