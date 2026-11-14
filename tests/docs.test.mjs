@@ -5,7 +5,8 @@ import assert from 'node:assert/strict';
 import { readFileSync, readdirSync } from 'node:fs';
 import { test } from 'node:test';
 
-const read = (path) => readFileSync(new URL(`../${path}`, import.meta.url), 'utf8');
+// Line endings are normalised so the checks read the same on a Windows checkout with CRLF.
+const read = (path) => readFileSync(new URL(`../${path}`, import.meta.url), 'utf8').replaceAll('\r\n', '\n');
 
 test('docs: every test named in the threat model exists', () => {
   const names = [];

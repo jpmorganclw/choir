@@ -1,0 +1,4 @@
+# Text files are checked out with LF everywhere, including on Windows.
+* text=auto eol=lf
+*.wasm binary
+*.mp4 binary
